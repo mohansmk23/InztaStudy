@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/courses"
+        android:icon="@drawable/bottom_home"
+        android:title="Courses"
+        android:checked="true"
+        android:iconTint="@color/blue"/>
+    <item
+        android:id="@+id/download"
+        android:icon="@drawable/bottom_download"
+        android:title="Downloads"
+        android:iconTint="#8bc34a"/>
+
+
+    <item
+        android:id="@+id/apps"
+        android:icon="@drawable/bbottom_apps"
+        android:title="Other Apps"
+        android:iconTint="#F7C765"/>
+
+
+
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/bottom_profile"
+        android:title="Profile" />
+
+</menu>

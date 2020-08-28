@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#275A53"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:background="#275A53"
+        android:layout_marginBottom="@dimen/_80sdp"
+        android:layout_height="match_parent" />
+
+
+
+
+
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/snippetlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/view_pager"
+        app:layout_constraintBottom_toBottomOf="@id/view_pager"
+        android:background="@drawable/left_rounded_corner"
+        android:backgroundTint="#F7C765"
+        android:elevation="6dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="@dimen/_18sdp"
+            android:paddingRight="@dimen/_50sdp"
+            android:paddingLeft="@dimen/_16sdp"
+            android:gravity="left"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get started"
+                android:textSize="@dimen/font_size_micro"
+                android:textColor="@color/darkbluegrey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:paddingRight="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to"
+                android:textColor="@color/darkbluegrey"
+                android:textSize="@dimen/font_size_large"
+                android:layout_marginTop="@dimen/_4sdp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NCERT solutions"
+                android:textSize="@dimen/font_size_xlarge"
+                android:textStyle="bold"
+                android:textColor="@color/darkbluegrey"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_navigate_next_black_24dp"
+        app:layout_constraintTop_toBottomOf="@id/snippetlay"
+        app:layout_constraintBottom_toBottomOf="@id/snippetlay"
+        android:backgroundTint="#E34A2B"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/_4sdp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

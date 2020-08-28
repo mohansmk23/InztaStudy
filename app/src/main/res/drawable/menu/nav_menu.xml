@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+    <item
+        android:id="@+id/profile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_person"/>
+
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+    <item
+        android:id="@+id/myorders"
+        android:title="My Orders"
+        android:icon="@drawable/ic_orders"/>
+
+    </group>
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group4">
+        <item
+            android:id="@+id/favourites"
+            android:title="Favourites"
+            android:icon="@drawable/ic_fav"/>
+
+
+    </group>
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group5">
+        <item
+            android:id="@+id/branch"
+            android:title="Manage Branches"
+            android:icon="@drawable/ic_link"/>
+
+
+    </group>
+
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3">
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout"/>
+
+
+</group>
+
+
+
+
+</menu>

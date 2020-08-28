@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    //fontsizes
+    <dimen name="font_size_micro">@dimen/_8ssp</dimen>
+    <dimen name="font_size_medium">@dimen/_10ssp</dimen>
+    <dimen name="font_size_normal">@dimen/_12ssp</dimen>
+    <dimen name="font_size_large">@dimen/_14ssp</dimen>
+    <dimen name="font_size_xlarge">@dimen/_16ssp</dimen>
+    <dimen name="font_size_xxlarge">@dimen/_18ssp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+</resources>

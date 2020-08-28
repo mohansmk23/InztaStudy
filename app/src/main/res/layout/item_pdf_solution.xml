@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="@dimen/_4sdp"
+    android:paddingHorizontal="@dimen/_6sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pdflay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_8sdp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/rounded_corner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+
+
+
+        <TextView
+            android:id="@+id/snotxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="01"
+            android:layout_weight="2"
+            android:textColor="@color/darkgrey"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="@dimen/_8sdp"/>
+
+    <TextView
+        android:id="@+id/pdfname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:text="Chapter 1 Solutions"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/font_size_large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/snotxt" />
+
+
+        <ImageView
+            android:id="@+id/downicon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/downloading_green"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:textColor="@color/colorPrimary" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

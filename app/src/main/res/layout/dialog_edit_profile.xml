@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profilebtmsht"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/_48sdp">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_rounded_corner"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_32sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/namelabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:elevation="16dp"
+            android:outlineProvider="none"
+            android:text="Name"
+            android:textSize="@dimen/font_size_micro" />
+
+        <EditText
+            android:id="@+id/edtnametxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:elevation="16dp"
+            android:inputType="textPersonName"
+            android:outlineProvider="none"
+            android:text=""
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/font_size_large"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/emaillabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:elevation="16dp"
+            android:outlineProvider="none"
+            android:text="Email"
+            android:textSize="@dimen/font_size_micro" />
+
+        <EditText
+            android:id="@+id/edtemailtxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/font_size_large"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:elevation="16dp"
+            android:outlineProvider="none"
+            android:text="Mobile"
+            android:textSize="@dimen/font_size_micro" />
+
+        <EditText
+            android:id="@+id/edtmobiletxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:inputType="number"
+            android:text=""
+            android:maxLength="10"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/font_size_large"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:elevation="16dp"
+            android:outlineProvider="none"
+            android:text="About Me"
+            android:textSize="@dimen/font_size_micro" />
+
+        <EditText
+            android:id="@+id/edtabttxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:text=""
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/font_size_large"
+            android:textStyle="bold" />.
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:paddingTop="@dimen/_16sdp"
+            android:gravity="right">
+
+
+            <TextView
+                android:id="@+id/cancelbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold"
+                android:paddingHorizontal="@dimen/_22sdp"
+                android:paddingVertical="@dimen/_8sdp"/>
+
+
+            <Button
+                android:id="@+id/savbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_btn_bg"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="@dimen/_22sdp"
+                android:paddingVertical="@dimen/_8sdp"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+</RelativeLayout>
