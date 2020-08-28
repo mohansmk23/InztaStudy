@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ncert">
+    package="com.istrides.inztastudy">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -36,20 +36,20 @@
 
 
 
-        <activity android:name=".SubSubCategoryList"></activity>
-        <activity android:name=".Sample" />
-        <activity android:name=".VideoList" />
-        <activity android:name=".SubCategoryList" />
+        <activity android:name="com.istrides.inztastudy.SubSubCategoryList"></activity>
+        <activity android:name="com.istrides.inztastudy.Sample" />
+        <activity android:name="com.istrides.inztastudy.VideoList" />
+        <activity android:name="com.istrides.inztastudy.SubCategoryList" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.istrides.inztastudy.MainActivity"
             android:theme="@style/Dashboardtheme"
             android:launchMode="singleTask"/>
-        <activity android:name=".VideoView" />
-        <activity android:name=".PDFView" />
-        <activity android:name=".Solutions" />
+        <activity android:name="com.istrides.inztastudy.VideoView" />
+        <activity android:name="com.istrides.inztastudy.PDFView" />
+        <activity android:name="com.istrides.inztastudy.Solutions" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
-        <activity android:name=".SplashScreen">
+        <activity android:name="com.istrides.inztastudy.SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
