@@ -35,22 +35,29 @@
 
     <TextView
         android:id="@+id/pdfname"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         android:text="Chapter 1 Solutions"
+        android:focusable="true"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:focusableInTouchMode="true"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/font_size_large"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/snotxt" />
+        app:layout_constraintLeft_toRightOf="@id/snotxt"
+        app:layout_constraintRight_toLeftOf="@id/downicon"/>
 
 
         <ImageView
             android:id="@+id/downicon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/downloading_green"
+            android:src="@drawable/dowloading_green"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

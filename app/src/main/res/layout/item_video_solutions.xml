@@ -52,10 +52,15 @@
                 android:id="@+id/vidname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingRight="@dimen/_8sdp"
                 android:text="Maths - Chapter 5 solutions"
+                android:focusable="true"
+                android:marqueeRepeatLimit ="marquee_forever"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
                 android:textSize="@dimen/font_size_normal"
-                android:textColor="@color/darkbluegrey"
-                android:singleLine="false" />
+                android:textColor="@color/darkbluegrey" />
             <TextView
                 android:id="@+id/durationtxt"
                 android:layout_width="wrap_content"

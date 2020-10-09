@@ -41,12 +41,19 @@
 
         <TextView
             android:id="@+id/catname"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_8sdp"
             android:text="Subject 1"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/font_size_large"
+            android:focusable="true"
+            android:marqueeRepeatLimit ="marquee_forever"
+            android:focusableInTouchMode="true"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            app:layout_constraintRight_toLeftOf="@id/menu"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/snotxt" />

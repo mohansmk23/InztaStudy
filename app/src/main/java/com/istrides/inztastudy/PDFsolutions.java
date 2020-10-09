@@ -251,6 +251,8 @@ public class PDFsolutions extends Fragment {
 
             final PDFlistModel.Output.PdfList list = booksList.get(position);
 
+
+
             int sno = position + 1;
 
             holder.sno.setText(sno > 9 ? String.valueOf(sno) : "0" + sno);
@@ -278,7 +280,7 @@ public class PDFsolutions extends Fragment {
 
             }
 
-            holder.downIcon.setImageResource(pdfFileNames.contains( list.getPdf_name())?R.drawable.downloading_green:R.drawable.download_red);
+            holder.downIcon.setImageResource(pdfFileNames.contains( list.getPdf_name())?R.drawable.dowloading_green :R.drawable.download_red);
 
 
             holder.item.setOnClickListener(new View.OnClickListener() {

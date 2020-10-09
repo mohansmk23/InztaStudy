@@ -31,7 +31,8 @@ public class VideoView extends YouTubeBaseActivity implements YouTubePlayer.OnIn
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
 
 
-        youTubePlayer.loadVideo(getIntent().getStringExtra("VIDID"));
+        youTubePlayer.cueVideo(getIntent().getStringExtra("VIDID"));
+        youTubePlayer.play();
         youTubePlayer.setFullscreen(true);
 
     }
@@ -41,7 +42,6 @@ public class VideoView extends YouTubeBaseActivity implements YouTubePlayer.OnIn
 
 
         youTubeInitializationResult.getErrorDialog(this, 1);
-        Log.i("skandha", "sasti");
-
+        Log.i("skandha", youTubeInitializationResult.name() + "app" );
     }
 }

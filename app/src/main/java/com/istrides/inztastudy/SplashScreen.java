@@ -88,7 +88,7 @@ public class SplashScreen extends AppCompatActivity {
                 if (runnHanlder)
                     launchHomeScreen();
             }
-        }, 3000);
+        }, 1000);
 
 
     }

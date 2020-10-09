@@ -46,29 +46,7 @@ public class Downloads extends Fragment {
                 + "/Download/");
 
 
-        pdfFiles = pdfFolder.listFiles();
 
-
-        if (pdfFiles != null) {
-
-            for (int i = 0; i < pdfFiles.length; i++) {
-
-
-
-                if (pdfFiles[i].getName().endsWith(".pdf")) {
-
-                    if (pdfFiles[i].getName().startsWith(pdfprefix)) {
-                        pdfFileNames.add(pdfFiles[i].getName());
-                    }
-
-                }
-            }
-
-
-
-
-
-        }
 
     }
 
@@ -83,9 +61,9 @@ public class Downloads extends Fragment {
         noDataLay = v.findViewById(R.id.nodatalay);
         pdfCount = v.findViewById(R.id.pdfcount);
 
-        pdfCount.setText(pdfFileNames.size() + " PDFs");
 
-        setupDownloadsList();
+
+
 
 
         return v;
@@ -208,5 +186,41 @@ public class Downloads extends Fragment {
         startActivity(i);
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Log.i("yesappa","ehabba");
+
+       pdfFileNames.clear();
+
+        pdfFiles = pdfFolder.listFiles();
+
+
+        if (pdfFiles != null) {
+
+            for (int i = 0; i < pdfFiles.length; i++) {
+
+
+
+                if (pdfFiles[i].getName().endsWith(".pdf")) {
+
+                    if (pdfFiles[i].getName().startsWith(pdfprefix)) {
+                        pdfFileNames.add(pdfFiles[i].getName());
+                    }
+
+                }
+            }
+
+
+
+
+
+        }
+
+        setupDownloadsList();
+        pdfCount.setText(pdfFileNames.size() + " PDFs");
     }
 }

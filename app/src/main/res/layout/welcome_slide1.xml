@@ -1,75 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bottom_rounded_corner">
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/bottom_rounded_corner"
+      tools:layout_editor_absoluteX="0dp"
+      tools:layout_editor_absoluteY="0dp">
 
 
     <ImageView
         android:id="@+id/illusimg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/intro_cover"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/splashimage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/destxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get access to wide range of resources tailored just for you"
-        android:textStyle="bold"
-        android:textSize="@dimen/font_size_large"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:gravity="center"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:text="Get access to wide range of resources tailored just for you"
         android:textColor="@color/primary_text"
+        android:textSize="@dimen/font_size_large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/illusimg"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:paddingHorizontal="@dimen/_16sdp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Explore"
-        android:textStyle="bold"
-        android:textSize="@dimen/font_size_xxlarge"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:gravity="center"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:text="Explore"
         android:textColor="@color/primary_text"
+        android:textSize="@dimen/font_size_xxlarge"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/destxt"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:paddingHorizontal="@dimen/_16sdp"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

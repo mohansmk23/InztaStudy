@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavBar = findViewById(R.id.bubbleTabBar);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
-        getSupportActionBar().setTitle("NCERT - Home");
+        getSupportActionBar().setTitle("InztaStudy - Home");
         getSupportActionBar().setElevation(0);
 
 
@@ -108,22 +108,22 @@ public class MainActivity extends AppCompatActivity {
             public void onBubbleClick(int i) {
 
                 if(i==R.id.courses){
-                    getSupportActionBar().setTitle("NCERT - Home");
+                    getSupportActionBar().setTitle("InztaStudy - Home");
                     fm.beginTransaction().hide(active).show(course).commit();
                     active = course;
                 }else if(i==R.id.download){
 
 
-                    getSupportActionBar().setTitle("NCERT - Downloads");
+                    getSupportActionBar().setTitle("InztaStudy - Downloads");
                     fm.beginTransaction().hide(active).show(downloads).commit();
                     active = downloads;
                 }else if(i==R.id.profile){
-                    getSupportActionBar().setTitle("NCERT - Profile");
+                    getSupportActionBar().setTitle("InztaStudy - Profile");
                     fm.beginTransaction().hide(active).show(profile).commit();
                     active = profile;
 
                 }else if(i == R.id.apps){
-                    getSupportActionBar().setTitle("NCERT - Other Apps");
+                    getSupportActionBar().setTitle("InztaStudy - Other Apps");
                     fm.beginTransaction().hide(active).show(otherApps).commit();
                     active = otherApps;
                 }

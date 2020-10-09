@@ -70,10 +70,18 @@ public class SubCategoryList extends AppCompatActivity {
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         subCatList = findViewById(R.id.subcatlist);
 
-
+//normal build
         catName = getIntent().getStringExtra("CATNAME");
         catId = getIntent().getStringExtra("CATID");
         catImgUrl = getIntent().getStringExtra("CATIMG");
+
+
+        //build 1
+//        catName = "NCERT SOLUTIONS";
+//        catId = "2";
+//        catImgUrl = "https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg";
+
+
 
         Glide.with(this).load(catImgUrl).into(catImg);
 
