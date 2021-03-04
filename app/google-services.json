@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "584845296016",
+    "firebase_url": "https://inztastudy-64772.firebaseio.com",
+    "project_id": "inztastudy-64772",
+    "storage_bucket": "inztastudy-64772.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584845296016:android:4a0740af53f6071fcd7315",
+        "android_client_info": {
+          "package_name": "com.istrides.inztastudy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584845296016-lqkt0jlmn79rkv8j1nlmiqq9b4u9mdcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOK62czop6EG5M2GztO_5wI-jxRx0HpvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584845296016-lqkt0jlmn79rkv8j1nlmiqq9b4u9mdcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -34,7 +34,7 @@ public class Downloads extends Fragment {
     LinearLayout noDataLay;
     DownloadListAdapter adapter;
     TextView pdfCount;
-    String pdfname,pdfprefix = "inztastudy";
+    String pdfname,pdfprefix = "inztamain-";
 
 
     @Override

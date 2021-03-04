@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash_screen);
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
@@ -48,7 +50,7 @@ public class SplashScreen extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
-        setContentView(R.layout.activity_splash_screen);
+
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         nxtBtn = findViewById(R.id.nextfab);
@@ -74,6 +76,9 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
+
                 runnHanlder = false;
                 launchHomeScreen();
 
@@ -84,7 +89,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                /* Create an Intent that will start the MainActivity. */
+
                 if (runnHanlder)
                     launchHomeScreen();
             }
@@ -99,8 +104,10 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(SplashScreen.this, MainActivity.class));
+        Log.i("chris","gayle");
+       // prefManager.setFirstTimeLaunch(false);
+        Intent i = new Intent(SplashScreen.this, MainActivity.class);
+        startActivity(i);
         finish();
     }
 

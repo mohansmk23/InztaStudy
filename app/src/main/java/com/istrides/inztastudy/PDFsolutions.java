@@ -1,6 +1,7 @@
 package com.istrides.inztastudy;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,12 +23,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,15 +59,20 @@ public class PDFsolutions extends Fragment {
     ProgressDialog pDialog, progressDialog;
     RecyclerView pdfListRecyclerview;
     PdfListAdapter adapter;
+    public Dialog downloadingDialog;
     Map<String, Object> body = new HashMap<>();
-    String pdfname,pdfprefix = "inztastudy";
+    String pdfname, pdfprefix = "inztastudy";
+    ProgressBar progressBar;
+    boolean downloading;
+    TextView cancelTxt;
     private long lastDownload = -1L;
     private DownloadManager mgr = null;
     LinearLayout nodatalay;
+    Cursor cursor;
     List<String> pdfFileNames = new ArrayList<>();
     File pdfFolder = new File(Environment.getExternalStorageDirectory()
             + "/Download/");
-    File[] pdfFiles ;
+    File[] pdfFiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,12 +93,19 @@ public class PDFsolutions extends Fragment {
         nodatalay = v.findViewById(R.id.nodatalay);
         mgr = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
 
+        downloadingDialog = new Dialog(getActivity());
+        downloadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        downloadingDialog.setCancelable(false);
+        downloadingDialog.setContentView(R.layout.dialog_downloading);
+        downloadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-
-
+        progressBar = downloadingDialog.findViewById(R.id.progressbar);
+        cancelTxt = downloadingDialog.findViewById(R.id.canceltxt);
 
 
         body.put("apk_key", "pdf_list");
+        body.put("apptype", "main");
+
 
         from = getActivity().getIntent().getStringExtra("FROM");
 
@@ -131,7 +149,7 @@ public class PDFsolutions extends Fragment {
         }
 
 
-       // loadPdfSolutions(body);
+        // loadPdfSolutions(body);
 
 
         return v;
@@ -252,35 +270,32 @@ public class PDFsolutions extends Fragment {
             final PDFlistModel.Output.PdfList list = booksList.get(position);
 
 
-
             int sno = position + 1;
 
             holder.sno.setText(sno > 9 ? String.valueOf(sno) : "0" + sno);
 
 
-
-            if(list.getPdf_name().length()>10){
+            if (list.getPdf_name().length() > 10) {
                 holder.pdfName.setText(list.getChapterName());
 
-            }else{
+            } else {
 
                 holder.pdfName.setText(list.getChapterName());
 
             }
 
 
+            if (pdfFileNames.contains(list.getPdf_name())) {
 
-            if (pdfFileNames.contains( list.getPdf_name())){
+                Log.i("thallipogadheytrue", list.getPdf_name());
 
-                Log.i("thallipogadheytrue",list.getPdf_name());
+            } else {
 
-            }else{
-
-                Log.i("thallipogadheyfalse",list.getPdf_name());
+                Log.i("thallipogadheyfalse", list.getPdf_name());
 
             }
 
-            holder.downIcon.setImageResource(pdfFileNames.contains( list.getPdf_name())?R.drawable.dowloading_green :R.drawable.download_red);
+            holder.downIcon.setImageResource(pdfFileNames.contains(list.getPdf_name()) ? R.drawable.dowloading_green : R.drawable.download_red);
 
 
             holder.item.setOnClickListener(new View.OnClickListener() {
@@ -289,26 +304,21 @@ public class PDFsolutions extends Fragment {
 
                     pdfname = list.getPdf_name();
 
-                    if (pdfFileNames.contains( list.getPdf_name())){
+                    if (pdfFileNames.contains(list.getPdf_name())) {
 
 
                         openPdfView();
 
 
-                    }else{
+                    } else {
                         if (checkWriteExternalPermission()) {
-                            Log.i("grtjewel",list.getUploadFile()+ " sds");
+                            Log.i("grtjewel", list.getUploadFile() + " sds");
                             downloadpdf(list.getUploadFile().trim());
 
                         } else {
                             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                         }
                     }
-
-
-
-
-
 
 
                 }
@@ -327,19 +337,15 @@ public class PDFsolutions extends Fragment {
     private void downloadpdf(String url) {
 
 
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.show();
-        progressDialog.setMessage("Downloading");
-        progressDialog.setIndeterminate(false);
-        progressDialog.setCancelable(false);
+        downloadingDialog.show();
+        downloading = true;
 
         String s = url.replaceAll(" ", "%20");
         Uri link = Uri.parse(s);
 
 
         File folder1 = new File(Environment.getExternalStorageDirectory()
-                + "/Download/" + pdfname );
-
+                + "/Download/" + pdfname);
 
 
         if (folder1.exists()) {
@@ -357,25 +363,126 @@ public class PDFsolutions extends Fragment {
                         .setDestinationUri(Uri.fromFile(folder1)));
 
 
+
         getActivity().registerReceiver(onComplete,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
+        new Thread(new Runnable() {
 
+            @Override
+            public void run() {
+
+                boolean downloading = true;
+
+                while (downloading) {
+
+                    DownloadManager.Query q = new DownloadManager.Query();
+                    q.setFilterById(lastDownload);
+
+                  Cursor cursor = mgr.query(q);
+                    cursor.moveToFirst();
+
+
+                    if( cursor != null && cursor.moveToFirst() ) {
+
+                        int bytes_downloaded = cursor.getInt(cursor
+                                .getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                        int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+
+                        if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                            downloading = false;
+                        }
+
+                        if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_FAILED) {
+                            downloading = false;
+                        }
+
+
+                        final int dl_progress = (int) ((bytes_downloaded * 100l) / bytes_total);
+
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            public void run() {
+                                progressBar.setProgress((int) dl_progress);
+                            }
+                        });
+
+                        Log.i("johnwick", statusMessage(cursor));
+
+
+
+                    }
+                    cursor.close();
+
+                }
+
+            }
+        }).start();
+
+
+
+
+
+        cancelTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                downloading = false;
+                mgr.remove(lastDownload);
+               // getActivity().unregisterReceiver(onComplete);
+                downloadingDialog.cancel();
+
+
+            }
+        });
+
+
+    }
+
+
+    private String statusMessage(Cursor c) {
+        String msg = "???";
+
+        switch (c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS))) {
+            case DownloadManager.STATUS_FAILED:
+                msg = "Download failed!";
+                break;
+
+            case DownloadManager.STATUS_PAUSED:
+                msg = "Download paused!";
+                break;
+
+            case DownloadManager.STATUS_PENDING:
+                msg = "Download pending!";
+                break;
+
+            case DownloadManager.STATUS_RUNNING:
+                msg = "Download in progress!";
+                break;
+
+            case DownloadManager.STATUS_SUCCESSFUL:
+                msg = "Download complete!";
+                downloadingDialog.cancel();
+                openPdfView();
+                break;
+
+            default:
+                msg = "Download is nowhere in sight";
+                break;
+        }
+
+        return (msg);
     }
 
 
     BroadcastReceiver onComplete = new BroadcastReceiver() {
         public void onReceive(Context ctxt, Intent intent) {
 
-            progressDialog.cancel();
-         openPdfView();
-            getActivity().unregisterReceiver(this);
-
         }
     };
 
 
-    private void openPdfView(){
+    private void openPdfView() {
 
         File folder1 = new File(Environment.getExternalStorageDirectory()
                 + "/Download/" + pdfname);
@@ -412,11 +519,10 @@ public class PDFsolutions extends Fragment {
 
         pdfFiles = pdfFolder.listFiles();
 
-        if (pdfFiles!=null) {
+        if (pdfFiles != null) {
 
             for (int i = 0; i < pdfFiles.length; i++) {
 
-                Log.i("kovaimayil",pdfFiles[i].getName());
 
                 pdfFileNames.add(pdfFiles[i].getName());
 

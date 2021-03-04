@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     Fragment otherApps = new OtherApps();
     Fragment active = course;
     private AdView mAdView;
-    Toolbar toolbar;
     boolean doubleBackToExitPressedOnce = false;
     final FragmentManager fm = getSupportFragmentManager();
     PermissionListener permissionlistener;
@@ -62,12 +62,32 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setElevation(0);
 
 
+
+        new Thread(new Runnable(){
+            public void run(){
+                //countdown code.
+                runOnUiThread(new Runnable(){
+                    public void run(){
+                        setupActivity();
+                    }
+                });
+            }
+        }).start();
+
+
+    }
+
+
+
+    public void setupActivity(){
+
+
         fm.beginTransaction().add(R.id.container, profile, "4").hide(profile).commit();
         fm.beginTransaction().add(R.id.container, otherApps, "3").hide(otherApps).commit();
         fm.beginTransaction().add(R.id.container, downloads, "2").hide(downloads).commit();
         fm.beginTransaction().add(R.id.container, course, "1").commit();
 
-
+        Log.i("chris","gayle2");
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -79,20 +99,21 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
 
-
+        Log.i("chris","gayle3");
         permissionlistener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-             //   Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-              //  Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
             }
 
 
         };
+        Log.i("chris","gayle4");
 
         TedPermission.with(this)
                 .setPermissionListener(permissionlistener)
@@ -100,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
                 .check();
 
-
+        Log.i("chris","gayle5");
 
 
         bottomNavBar.addBubbleListener(new OnBubbleClickListener() {
@@ -132,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        Log.i("chris","gayle6");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -145,10 +166,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+        Log.i("chris","gayle7");
+
     }
-
-
-
 
 
 

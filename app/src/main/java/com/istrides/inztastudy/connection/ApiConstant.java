@@ -17,8 +17,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiConstant {
 
-     // public static final String Api_MainLogin_Url =  "http://inztastudy.com/index.php/";
-    public static final String Api_MainLogin_Url  =  "https://dev.hirephpcoder.com/inztastudy/index.php/";
+      public static final String Api_MainLogin_Url =  "https://inztastudy.com/index.php/";
+  //  public static final String Api_MainLogin_Url  =  "https://dev.hirephpcoder.com/inztastudy/index.php/";
 
 
     public static String getApi_MainLogin_Url() {

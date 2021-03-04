@@ -51,6 +51,6 @@ public interface ApiGetPost {
     @Multipart
     @POST("profile-upload")
     Call<ProfileModel> PicUpload(
-                        @Part("profile_pic\"; filename=\"pp.png\" ") RequestBody file, @Part("device_id") RequestBody id);
+                        @Part("profile_pic\"; filename=\"pp.png\" ") RequestBody file, @Part("device_id") RequestBody id, @Part("apptype") RequestBody appType);
 
 }

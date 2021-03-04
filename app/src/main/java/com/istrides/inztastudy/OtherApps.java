@@ -36,7 +36,7 @@ public class OtherApps extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String url = "https://play.google.com/store/apps/developer?id=RightGait+Design+Studio&hl=en";
+                String url = "https://play.google.com/store/apps/developer?id=chandra+kishore";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 getActivity().startActivity(i);

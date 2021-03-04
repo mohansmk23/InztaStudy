@@ -84,7 +84,6 @@
 
 
         <TextView
-            android:id="@+id/namelabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_8sdp"
@@ -116,7 +115,6 @@
             android:background="@color/lightgrey"/>
 
         <TextView
-            android:id="@+id/emaillabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_8sdp"

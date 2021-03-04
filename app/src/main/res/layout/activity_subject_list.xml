@@ -28,7 +28,6 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/headerlay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#F7C765"
@@ -42,8 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_180sdp"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/new1" />
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/cattxt"
@@ -116,7 +114,6 @@
 
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
@@ -152,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+        ads:adUnitId="@string/ad_unit_id"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

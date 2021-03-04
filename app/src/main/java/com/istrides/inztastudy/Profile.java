@@ -117,6 +117,7 @@ public class Profile extends Fragment {
 
         profilebody.put("api_method", "profile-retrieve");
         profilebody.put("device_id", deviceId);
+        profilebody.put("apptype", "main");
 
         retrieveProfileDetails(profilebody);
 
@@ -159,6 +160,8 @@ public class Profile extends Fragment {
                     body.put("mobile_number", edtPhone.getText().toString());
                     body.put("about_me", edtAbtme.getText().toString());
                     body.put("device_id", deviceId);
+                    body.put("apptype", "main");
+
 
                     updateProfile(body);
 
@@ -228,7 +231,7 @@ public class Profile extends Fragment {
 
                 } else {
 
-                    Toast.makeText(getActivity(), listResponse.getOutput().get(0).getMessage(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(), listResponse.getOutput().get(0).getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -319,7 +322,10 @@ public class Profile extends Fragment {
                     RequestBody deviceid = RequestBody.create(MediaType.parse("text/plain"),
                             deviceId);
 
-                    uploadpic(pic, deviceid);
+                    RequestBody appType = RequestBody.create(MediaType.parse("text/plain"),
+                            "main");
+
+                    uploadpic(pic, deviceid,appType);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -332,7 +338,7 @@ public class Profile extends Fragment {
         }
     }
 
-    private void uploadpic(RequestBody pic, RequestBody deviceid) {
+    private void uploadpic(RequestBody pic, RequestBody deviceid,RequestBody appType) {
 
         pDialog = new ProgressDialog(getActivity());
         pDialog.show();
@@ -341,7 +347,7 @@ public class Profile extends Fragment {
         pDialog.setCancelable(true);
 
         ApiGetPost service = ApiConstant.geturl().create(ApiGetPost.class);
-        uploadPic = service.PicUpload(pic,deviceid);
+        uploadPic = service.PicUpload(pic,deviceid,appType);
 
         uploadPic.enqueue(new Callback<ProfileModel>() {
             @Override

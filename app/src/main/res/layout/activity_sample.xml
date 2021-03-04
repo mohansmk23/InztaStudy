@@ -30,7 +30,6 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/headerlay"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:background="#9fa8da"
@@ -81,7 +80,6 @@
 
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
