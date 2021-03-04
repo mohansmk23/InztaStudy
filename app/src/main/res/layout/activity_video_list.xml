@@ -207,6 +207,6 @@
         android:layout_gravity="bottom|center_horizontal"
         ads:adSize="BANNER"
         ads:adUnitId="@string/ad_unit_id"/>
-
+z
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
